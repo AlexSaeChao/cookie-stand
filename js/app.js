@@ -234,3 +234,5 @@ paris.render();
 // console.log(paris.avgCookieSales);
 lima.render();
 // console.log(lima.avgCookieSales);
+
+
