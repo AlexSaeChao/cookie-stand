@@ -225,12 +225,12 @@ let lima = {
 
 
 seattle.render();
-console.log(seattle.avgCookieSales);
+// console.log(seattle.avgCookieSales);
 tokyo.render();
-console.log(tokyo.avgCookieSales);
+// console.log(tokyo.avgCookieSales);
 dubai.render();
-console.log(dubai.avgCookieSales);
+// console.log(dubai.avgCookieSales);
 paris.render();
-console.log(paris.avgCookieSales);
+// console.log(paris.avgCookieSales);
 lima.render();
-console.log(lima.avgCookieSales);
+// console.log(lima.avgCookieSales);
