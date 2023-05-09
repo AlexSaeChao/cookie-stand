@@ -20,14 +20,18 @@ let seattle = {
 
   getNumCust: function () {
     this.numCust = this.randomNumCustGenerator(this.minCust, this.maxCust);
+    return this.numCust;
   },
 
 
   render: function () {
     for (let i = 0; i < hours.length; i++) {
-      this.getNumCust();
-      let avgCookieSold = this.avgCookieBought * this.numCust;
-      this.avgCookieSales.push(avgCookieSold.toFixed()); // .toFixed from MDN
+      // this.getNumCust();
+      let avgCookieSold = Math.round(this.avgCookieBought * this.getNumCust());
+      console.log(avgCookieSold);
+      this.numSales += avgCookieSold;
+      this.avgCookieSales.push(avgCookieSold); // .toFixed from MDN
+
     }
 
     let articleEle = document.createElement('article');
@@ -46,6 +50,9 @@ let seattle = {
       cookieUL.appendChild(storeHours);
 
     }
+    let cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total Sales: ${this.numSales}`;
+    cookieUL.appendChild(cookieTotal);
   },
 };
 
@@ -65,14 +72,18 @@ let tokyo = {
 
   getNumCust: function () {
     this.numCust = this.randomNumCustGenerator(this.minCust, this.maxCust);
+    return this.numCust;
   },
 
 
   render: function () {
     for (let i = 0; i < hours.length; i++) {
-      this.getNumCust();
-      let avgCookieSold = this.avgCookieBought * this.numCust;
-      this.avgCookieSales.push(avgCookieSold.toFixed());
+      // this.getNumCust();
+      let avgCookieSold = Math.round(this.avgCookieBought * this.getNumCust());
+      console.log(avgCookieSold);
+      this.numSales += avgCookieSold;
+      this.avgCookieSales.push(avgCookieSold); // .toFixed from MDN
+
     }
 
     let articleEle = document.createElement('article');
@@ -91,6 +102,9 @@ let tokyo = {
       cookieUL.appendChild(storeHours);
 
     }
+    let cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total Sales: ${this.numSales}`;
+    cookieUL.appendChild(cookieTotal);
   },
 };
 
@@ -108,14 +122,18 @@ let dubai = {
 
   getNumCust: function () {
     this.numCust = this.randomNumCustGenerator(this.minCust, this.maxCust);
+    return this.numCust;
   },
 
 
   render: function () {
     for (let i = 0; i < hours.length; i++) {
-      this.getNumCust();
-      let avgCookieSold = this.avgCookieBought * this.numCust;
-      this.avgCookieSales.push(avgCookieSold.toFixed());
+      // this.getNumCust();
+      let avgCookieSold = Math.round(this.avgCookieBought * this.getNumCust());
+      console.log(avgCookieSold);
+      this.numSales += avgCookieSold;
+      this.avgCookieSales.push(avgCookieSold); // .toFixed from MDN
+
     }
 
     let articleEle = document.createElement('article');
@@ -134,6 +152,9 @@ let dubai = {
       cookieUL.appendChild(storeHours);
 
     }
+    let cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total Sales: ${this.numSales}`;
+    cookieUL.appendChild(cookieTotal);
   },
 };
 
@@ -151,14 +172,18 @@ let paris = {
 
   getNumCust: function () {
     this.numCust = this.randomNumCustGenerator(this.minCust, this.maxCust);
+    return this.numCust;
   },
 
 
   render: function () {
     for (let i = 0; i < hours.length; i++) {
-      this.getNumCust();
-      let avgCookieSold = this.avgCookieBought * this.numCust;
-      this.avgCookieSales.push(avgCookieSold.toFixed());
+      // this.getNumCust();
+      let avgCookieSold = Math.round(this.avgCookieBought * this.getNumCust());
+      console.log(avgCookieSold);
+      this.numSales += avgCookieSold;
+      this.avgCookieSales.push(avgCookieSold); // .toFixed from MDN
+
     }
 
     let articleEle = document.createElement('article');
@@ -177,6 +202,9 @@ let paris = {
       cookieUL.appendChild(storeHours);
 
     }
+    let cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total Sales: ${this.numSales}`;
+    cookieUL.appendChild(cookieTotal);
   },
 };
 
@@ -194,14 +222,18 @@ let lima = {
 
   getNumCust: function () {
     this.numCust = this.randomNumCustGenerator(this.minCust, this.maxCust);
+    return this.numCust;
   },
 
 
   render: function () {
     for (let i = 0; i < hours.length; i++) {
-      this.getNumCust();
-      let avgCookieSold = this.avgCookieBought * this.numCust;
-      this.avgCookieSales.push(avgCookieSold.toFixed());
+      // this.getNumCust();
+      let avgCookieSold = Math.round(this.avgCookieBought * this.getNumCust());
+      console.log(avgCookieSold);
+      this.numSales += avgCookieSold;
+      this.avgCookieSales.push(avgCookieSold); // .toFixed from MDN
+
     }
 
     let articleEle = document.createElement('article');
@@ -220,6 +252,9 @@ let lima = {
       cookieUL.appendChild(storeHours);
 
     }
+    let cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total Sales: ${this.numSales}`;
+    cookieUL.appendChild(cookieTotal);
   },
 };
 
