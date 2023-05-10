@@ -11,11 +11,12 @@ let cookieSection = document.getElementById('cookie-profiles');
 
 
 // **** HELPER FUNCTION / UTILITIES ****
-function renderAll(){
-  for(let i = 0; i < cookieSalesArray.length; i++){
+function renderArrays() {
+  for (let i = 0; i < cookieSalesArray.length; i++) {
     cookieSalesArray[i].render();
   }
 }
+
 
 // **** CONSTRUCTOR FUNCTION ****
 function CookieShop(name, minCust, maxCust, avgCookieBought) {
@@ -32,15 +33,17 @@ function CookieShop(name, minCust, maxCust, avgCookieBought) {
 
 // **** PROTOTYPE METHODS ****
 
-function randomNumCustGenerator (min, max) {
+function randomNumCustGenerator(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// creating the number of customers for the hour
 CookieShop.prototype.getNumCust = function () {
   this.numCust = randomNumCustGenerator(this.minCust, this.maxCust);
 };
 
-CookieShop.prototype.cookiesSoldPerHourArray = function() {
+// creating how many cookies were sold for the hour and push it into the array
+CookieShop.prototype.cookiesSoldPerHourArray = function () {
   for (let i = 0; i < hours.length; i++) {
     this.getNumCust();
     let avgCookieSold = Math.round(this.avgCookieBought * this.numCust);
@@ -50,28 +53,61 @@ CookieShop.prototype.cookiesSoldPerHourArray = function() {
   }
 };
 
-CookieShop.prototype.render = function () {
+// creating table function
+function renderAll() {
+  // create table element
+  let tableEle = document.createElement('table');
+  cookieSection.appendChild(tableEle);
 
-  let articleEle = document.createElement('article');
-  cookieSection.appendChild(articleEle);
+  // create header row
+  let headerRow = document.createElement('tr');
+  tableEle.appendChild(headerRow);
 
-  let cookieHeading = document.createElement('h2');
-  cookieHeading.innerText = this.name;
-  articleEle.appendChild(cookieHeading);
+  // adding empty header cell for the emtpy space
+  let emptyHeaderCell = document.createElement('th');
+  headerRow.appendChild(emptyHeaderCell);
 
-  let cookieUL = document.createElement('ul');
-  articleEle.appendChild(cookieUL);
-
+  // adding hour header cells
   for (let i = 0; i < hours.length; i++) {
-    let storeHours = document.createElement('li');
-    storeHours.innerText = `${hours[i]} : ${this.cookiesSoldPerHour[i]} cookies`;
-    cookieUL.appendChild(storeHours);
+    let hourHeaderCell = document.createElement('th');
+    hourHeaderCell.innerText = hours[i];
+    headerRow.appendChild(hourHeaderCell);
+  }
+
+  // adding daily total header cell
+  let dailyTotalHeaderCell = document.createElement('th');
+  dailyTotalHeaderCell.innerText = 'Daily Location Total';
+  headerRow.appendChild(dailyTotalHeaderCell);
+
+  // create a row for each cookie shop
+  for (let i = 0; i < cookieSalesArray.length; i++) {
+    let cookieShop = cookieSalesArray[i];
+
+    // create row for current cookie shop
+    let shopRow = document.createElement('tr');
+    tableEle.appendChild(shopRow);
+
+    // add shop location name cell
+    let nameCell = document.createElement('td');
+    nameCell.innerText = cookieShop.name;
+    shopRow.appendChild(nameCell);
+
+    // add cookie sales cells for each store
+    for (let j = 0; j < hours.length; j++) {
+      let salesCell = document.createElement('td');
+      salesCell.innerText = cookieShop.cookiesSoldPerHour[j];
+      shopRow.appendChild(salesCell);
+    }
+
+    // add daily total cell
+    let dailyTotalCell = document.createElement('td');
+    dailyTotalCell.innerText = cookieShop.numSales;
+    shopRow.appendChild(dailyTotalCell);
 
   }
-  let cookieTotal = document.createElement('li');
-  cookieTotal.textContent = `Total Sales: ${this.numSales}`;
-  cookieUL.appendChild(cookieTotal);
-};
+
+}
+
 
 // *** EXECUTABLE (executes on page load) CODE ***
 let seattle = new CookieShop('Seattle', 23, 65, 6.3);
@@ -80,10 +116,8 @@ let dubai = new CookieShop('Dubai', 11, 38, 3.7);
 let paris = new CookieShop('Paris', 20, 38, 2.3);
 let lima = new CookieShop('Lima', 2, 16, 4.6);
 
-
+renderArrays();
 cookieSalesArray.push(seattle, tokyo, dubai, paris, lima);
-
-console.log(seattle);
 renderAll();
 
 // let seattle = {

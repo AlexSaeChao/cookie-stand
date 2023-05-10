@@ -1,0 +1,25 @@
+
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  height: 100%;
+  display: block;
+  text-align: center;
+}
+
+table th {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+table tr td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+table tr:nth-child(odd) {
+  background: lightgray;
+}
+
+/* taken from https://www.codepel.com/vanilla-javascript/javascript-create-table-from-array/ for readibility */
