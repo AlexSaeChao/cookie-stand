@@ -42,7 +42,7 @@ CookieShop.prototype.getNumCust = function () {
   this.numCust = randomNumCustGenerator(this.minCust, this.maxCust);
 };
 
-// creating how many cookies were sold for the hour and push it into the array
+// creating how many cookies were sold for the hour and push it into the array, also adds daily total
 CookieShop.prototype.cookiesSoldPerHourArray = function () {
   for (let i = 0; i < hours.length; i++) {
     this.getNumCust();
@@ -63,7 +63,7 @@ function renderAll() {
   let headerRow = document.createElement('tr');
   tableEle.appendChild(headerRow);
 
-  // adding empty header cell for the emtpy space
+  // adding empty header cell for the emtpy space on the top left
   let emptyHeaderCell = document.createElement('th');
   headerRow.appendChild(emptyHeaderCell);
 
@@ -79,7 +79,7 @@ function renderAll() {
   dailyTotalHeaderCell.innerText = 'Daily Location Total';
   headerRow.appendChild(dailyTotalHeaderCell);
 
-  // create a row for each cookie shop
+  // create for each hour
   for (let i = 0; i < cookieSalesArray.length; i++) {
     let cookieShop = cookieSalesArray[i];
 
@@ -103,8 +103,34 @@ function renderAll() {
     let dailyTotalCell = document.createElement('td');
     dailyTotalCell.innerText = cookieShop.numSales;
     shopRow.appendChild(dailyTotalCell);
-
   }
+
+  // created row for hourly totals footer
+  let totalsRow = document.createElement('tr');
+  tableEle.appendChild(totalsRow);
+
+  // add 'Hourly Totals' footer cell
+  let totalsHeaderCell = document.createElement('th');
+  totalsHeaderCell.innerText = 'Hourly Totals';
+  totalsRow.appendChild(totalsHeaderCell);
+
+  // added hourly total data cells
+  let grandTotal = 0;
+  for (let k = 0; k < hours.length; k++) {
+    let hourlyTotal = 0;
+    for (let i = 0; i < cookieSalesArray.length; i++) {
+      hourlyTotal += cookieSalesArray[i].cookiesSoldPerHour[k];
+    }
+    let hourlyTotalCell = document.createElement('td');
+    hourlyTotalCell.innerText = hourlyTotal;
+    totalsRow.appendChild(hourlyTotalCell);
+    grandTotal += hourlyTotal;
+  }
+
+  // adding grand total cell
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.innerText = grandTotal;
+  totalsRow.appendChild(grandTotalCell);
 
 }
 
@@ -118,6 +144,7 @@ let lima = new CookieShop('Lima', 2, 16, 4.6);
 
 renderArrays();
 cookieSalesArray.push(seattle, tokyo, dubai, paris, lima);
+console.log(cookieSalesArray);
 renderAll();
 
 // let seattle = {
