@@ -3,8 +3,11 @@ header {
   font-size: 32px;
 }
 
-main img {
+main {
   justify-content: center;
+  margin: 15px;
+	padding: 20px;
+
 }
 
 main h2 {
@@ -17,7 +20,14 @@ section {
   margin: 10px;
   width: 400px;
   display: inline-flex;
-  gap: 20px;
+
+}
+
+fieldset {
+  width: 30%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 table {
