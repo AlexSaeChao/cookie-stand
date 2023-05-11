@@ -1,4 +1,24 @@
 
+header {
+  font-size: 32px;
+}
+
+main img {
+  justify-content: center;
+}
+
+main h2 {
+  font-size: 28px;
+  
+}
+
+
+section {
+  margin: 10px;
+  width: 400px;
+  display: inline-flex;
+  gap: 20px;
+}
 
 table {
   border-collapse: collapse;
