@@ -18,7 +18,7 @@ function renderArrays() {
 }
 
 // ***** FORM SUBMISSION EVENT LISTENER AND HANDLER ******
-function handleSubmit(event) {
+function handleSubmit(event){
   event.preventDefault();
 
   let storeName = event.target.storeName.value;
@@ -30,10 +30,10 @@ function handleSubmit(event) {
   let newCookieShop = new CookieShop(storeName, minCust, maxCust, avgCookieBought);
 
   cookieSalesArray.push(newCookieShop);
-  console.log(newCookieShop);
+  cookieSection.innerHTML = '';
+  // console.log(newCookieShop);
   renderAll();
 
-  cookieSection.innerHTML = '';
   myForm.reset();
 }
 
