@@ -6,7 +6,7 @@ const cookieSalesArray = [];
 
 // *** STEP 1: Grab the window into the DOM ***
 let cookieSection = document.getElementById('cookie-profiles');
-
+let myForm = document.getElementById('store-form');
 // console.dir(cookieSection);
 
 
@@ -16,6 +16,28 @@ function renderArrays() {
     cookieSalesArray[i].render();
   }
 }
+
+// ***** FORM SUBMISSION EVENT LISTENER AND HANDLER ******
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let storeName = event.target.storeName.value;
+  let minCust = parseInt(event.target.minCust.value);
+  let maxCust = parseInt(event.target.maxCust.value);
+  let avgCookieBought = parseInt(event.target.avgCookieBought.value);
+
+
+  let newCookieShop = new CookieShop(storeName, minCust, maxCust, avgCookieBought);
+
+  cookieSalesArray.push(newCookieShop);
+  console.log(newCookieShop);
+  renderAll();
+
+  cookieSection.innerHTML = '';
+  myForm.reset();
+}
+
+myForm.addEventListener('submit', handleSubmit);
 
 
 // **** CONSTRUCTOR FUNCTION ****
