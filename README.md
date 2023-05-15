@@ -1,7 +1,12 @@
 # cookie-stand
+
 Lab 06
 ![Lab9-sales-accessibility](img/salmon-cookie-sales-accessibility.png)
 ![lab9-index-accessibility](img/salmon-cookie-index-accessibility.png)
+
+lab10b
+![lab10b-index-accessibility](img/20230514-salmon-cookie-index-accessibility.png)
+![lab10b-sales-accessibility](img/20230514-salmon-cookie-sales-accessibility.png)
 
 # references
 
