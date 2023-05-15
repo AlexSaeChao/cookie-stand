@@ -2,3 +2,9 @@
 Lab 06
 ![Lab9-sales-accessibility](img/salmon-cookie-sales-accessibility.png)
 ![lab9-index-accessibility](img/salmon-cookie-index-accessibility.png)
+
+# references
+
+[css help with borders](https://developer.mozilla.org/en-US/docs/Web/CSS/border )
+[highlight type](https://www.scaler.com/topics/css-highlight-text/)
+[google fonts](https://fonts.google.com/specimen/Permanent+Marker/tester?category=Handwriting)
